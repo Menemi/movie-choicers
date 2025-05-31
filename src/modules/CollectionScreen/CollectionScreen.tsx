@@ -72,7 +72,7 @@ const CollectionScreen: React.FC<CollectionScreenProps> = ({ navigateTo }) => {
 
         if (validateResult.valid && validateResult.filmId) {
             const { filmId } = validateResult;
-            const movie = await fetchMovie(Number(filmId), true);
+            const movie = await fetchMovie(Number(filmId));
             setMovieCollection((prev) => [...prev, movie]);
             input.value = '';
         } else {

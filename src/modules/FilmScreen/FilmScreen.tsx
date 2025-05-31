@@ -42,7 +42,7 @@ const FilmScreen: React.FC<FilmScreenProps> = ({ filmIds, navigateTo }) => {
     } = useQuery({
         queryKey: ['fetchMovie'],
         queryFn: async () => {
-            const movie = await fetchMovie(filmIds[curFilmIndex], true);
+            const movie = await fetchMovie(filmIds[curFilmIndex]);
             collection.current.push(movie);
             return movie;
         },
