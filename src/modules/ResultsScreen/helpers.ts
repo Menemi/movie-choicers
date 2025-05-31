@@ -4,7 +4,7 @@ export const validatePartnerResultsCode = (decryptedValue: string): ShowNotifica
     if (!decryptedValue) {
         return {
             title: 'Ошибка при вставке кода результатов партнера',
-            message: 'Код пустой :(',
+            message: 'Неверный код, попробуйте другой',
             type: 'error',
         };
     }

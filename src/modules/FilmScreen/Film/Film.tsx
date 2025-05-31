@@ -1,7 +1,7 @@
 import styles from './Film.module.css';
 
 import React, { useState } from 'react';
-import { GetMovieShortResponse } from '../../../types';
+import { GetMovieShortResponse, PosterLoadingStatus } from '../../../types';
 import { accurateRound } from '../../../helpers';
 import cn from 'classnames';
 import SkeletonBlock from '../../../components/SkeletonBlock/SkeletonBlock';
@@ -13,8 +13,7 @@ type FilmProps = {
 };
 
 const Film: React.FC<FilmProps> = ({ movieInfo, isLoading, error }) => {
-    const [isPosterLoading, setIsPosterLoading] = useState<boolean>(false);
-    const [isPosterError, setIsPosterError] = useState<boolean>(false);
+    const [posterLoadingStatus, setPosterLoadingStatus] = useState<PosterLoadingStatus>('loading');
 
     const renderSkeleton = <SkeletonBlock width="50%" height="50%" />;
 
@@ -22,20 +21,20 @@ const Film: React.FC<FilmProps> = ({ movieInfo, isLoading, error }) => {
 
     const renderContent = (
         <div className={styles.subContainer}>
-            {isPosterError ? (
+            {posterLoadingStatus === 'error' ? (
                 <div className={styles.posterError}>
                     <i className="bx bx-x bx-lg" />
                     <p className={styles.posterErrorText}>Не удалось загрузить постер</p>
                 </div>
-            ) : isPosterLoading ? (
+            ) : posterLoadingStatus === 'loading' ? (
                 <SkeletonBlock width="20%" height="100%" borderRadius={16} />
             ) : undefined}
             <img
                 src={movieInfo?.poster}
                 alt={'poster'}
-                className={cn(styles.posterContainer, (isPosterLoading || isPosterError) && styles.none)}
-                onLoad={() => setIsPosterLoading(true)}
-                onError={() => setIsPosterError(true)}
+                className={cn(styles.posterContainer, posterLoadingStatus !== 'loaded' && styles.none)}
+                onLoad={() => setPosterLoadingStatus('loaded')}
+                onError={() => setPosterLoadingStatus('error')}
             />
             {!movieInfo ? null : (
                 <div className={styles.movieInfoContainer}>

@@ -8,6 +8,8 @@ export type ShowNotificationProps = {
     duration?: number;
 };
 
+export type PosterLoadingStatus = 'loading' | 'loaded' | 'error';
+
 type ExternalId = {
     imdb?: string;
     tmdb?: number;

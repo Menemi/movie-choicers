@@ -78,7 +78,10 @@ const Results: React.FC<ResultsProps> = ({ code, collectionFilms }) => {
     }
 
     const handleAddSecondUserResultsClick = () => {
-        pasteFromClipboard((res) => setSecondUserCode(res));
+        pasteFromClipboard((res) => {
+            const validatedResult = validatePartnerResultsCode(decrypt(res));
+            validatedResult ? showNotification(validatedResult) : setSecondUserCode(res);
+        });
     };
 
     const handleUserCollectionCodeClick = () => {
