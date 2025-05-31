@@ -1,0 +1,55 @@
+:root {
+    --accent: #ffdd2d;
+    --text: #333;
+    --background: #f5f5f6;
+    --light: #d4d1d8;
+    --semiLight: #a1a1b2;
+    --dark: #11151b;
+    --dark-opacity30: rgba(17 21 27 / 30%);
+    --dark-opacity10: rgba(17 21 27 / 10%);
+    --subAccent: #41414d;
+    --redAccent: #d6211a;
+    --lightRedAccent: #ff7b76;
+    --greenAccent: #73b077;
+    --first: #ffd700;
+    --second: #c0c0c0;
+    --third: #cd7f32;
+    --info-text: #3a74cb;
+    --success-text: #0a9731;
+    --warning-text: #d49d1d;
+    --error-text: #c22425;
+    --default-background: rgba(232, 232, 232, 0.64);
+    --info-background: rgba(66, 139, 249, .16);
+    --success-background: rgba(0, 185, 45, .16);
+    --warning-background: rgba(255, 221, 45, .16);
+    --error-background: rgba(245, 34, 34, .16);
+    --default-background-hover: rgb(232, 232, 232);
+    --info-background-hover: rgba(66, 139, 249, .32);
+    --success-background-hover: rgba(0, 185, 45, .32);
+    --warning-background-hover: rgba(255, 221, 45, .32);
+    --error-background-hover: rgba(245, 34, 34, .32);
+}
+
+* {
+    font-family: Nunito, serif;
+    text-decoration: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: none;
+    color: var(--text);
+    list-style-type: none;
+    transition: 250ms all ease;
+    cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.container {
+    width: 100dvw;
+    height: 100dvh;
+    background-color: var(--background);
+}

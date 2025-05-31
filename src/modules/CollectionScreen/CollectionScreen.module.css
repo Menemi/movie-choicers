@@ -1,0 +1,60 @@
+:root {
+    --collection-item-height: 25px;
+    --collection-container-gap: 8px;
+    --collection-container-top-padding: 8px;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.subContainer {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.input {
+    border: 1px var(--semiLight) solid;
+    border-radius: 8px;
+    padding: 8px;
+    width: 100%;
+}
+
+.input:hover,
+.input:focus {
+    cursor: text;
+    border-color: var(--dark);
+}
+
+.disclaimer {
+    color: var(--lightRedAccent);
+}
+
+.collectionContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px 6px;
+    border: 1px var(--dark) solid;
+    border-radius: 8px;
+    max-height: calc(
+        var(--collection-item-height) * 5 +
+        var(--collection-container-gap) * 4 +
+        var(--collection-container-top-padding) * 2
+    );
+    overflow-x: hidden;
+    overflow-y: scroll;
+}

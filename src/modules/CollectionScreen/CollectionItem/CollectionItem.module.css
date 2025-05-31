@@ -1,0 +1,37 @@
+.container {
+    width: 100%;
+    height: var(--collection-item-height);
+    min-height: var(--collection-item-height);
+}
+
+.item {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--text);
+    max-width: 100%;
+}
+
+i {
+    color: var(--redAccent);
+}
+
+.text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.item:hover {
+    cursor: pointer;
+
+    i {
+        cursor: pointer;
+    }
+
+    .text {
+        cursor: pointer;
+        color: var(--dark);
+    }
+}
